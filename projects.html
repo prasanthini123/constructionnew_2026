@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Construction | Projects – Zigzag Portfolio</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Work Sans + Lora (strong, earthy) -->
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=Lora:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- AOS Scroll Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    /* ---------- GLOBAL RESET – CONSTRUCTION EARTH & STEEL ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #2C3E4F;
+      --primary-dark: #1E2E3B;
+      --accent: #E67E22;
+      --accent-light: #F39C12;
+      --light: #F8F9F9;
+      --dark: #1C2833;
+      --gray: #5D6D7E;
+      --white: #ffffff;
+      --shadow-sm: 0 15px 35px -15px rgba(0,0,0,0.08);
+      --shadow-md: 0 25px 50px -20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 40px 70px -25px rgba(0,0,0,0.18);
+      --shadow-xl: 0 50px 90px -30px rgba(0,0,0,0.25);
+      --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --border-radius: 24px;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      color: var(--dark);
+      background-color: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* ---------- TYPOGRAPHY & UTILITY ---------- */
+    .section-tag {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      position: relative;
+      padding: 0 12px;
+      background: rgba(230,126,34,0.08);
+      border-radius: 40px;
+      line-height: 32px;
+    }
+
+    .section-title {
+      font-size: 52px;
+      color: var(--primary);
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    @media (max-width: 768px) {
+      .section-title { font-size: 42px; }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 44px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      letter-spacing: 1px;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+      z-index: -1;
+    }
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 10px 25px -8px rgba(230,126,34,0.4);
+    }
+    .btn-primary:hover {
+      background: #d35400;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px -8px rgba(230,126,34,0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .btn-outline-dark {
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+    }
+    .btn-outline-dark:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    /* ---------- HEADER – STICKY, GLASS, DROPDOWN ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(230,126,34,0.15);
+      transition: var(--transition);
+    }
+    header.scrolled {
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 90px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--primary);
+      text-decoration: none;
+      font-family: 'Lora', serif;
+    }
+    .logo i {
+      color: var(--accent);
+      font-size: 36px;
+      transform: rotate(-5deg);
+      transition: transform 0.3s;
+    }
+    .logo:hover i {
+      transform: rotate(0deg) scale(1.1);
+    }
+
+    /* DESKTOP NAV */
+    .nav-links {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 40px;
+    }
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a i {
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+    .nav-links a:hover i {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: -20px;
+      width: 260px;
+      background: white;
+      border-radius: 24px;
+      padding: 16px 0;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+      border: 1px solid rgba(230,126,34,0.2);
+    }
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(8px);
+    }
+    .dropdown-menu a {
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--dark);
+      border-left: 4px solid transparent;
+    }
+    .dropdown-menu a i {
+      color: var(--accent);
+    }
+    .dropdown-menu a:hover {
+      background: rgba(230,126,34,0.04);
+      color: var(--accent);
+      border-left-color: var(--accent);
+      padding-left: 28px;
+    }
+    .highlight-btn {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: 12px 30px !important;
+      border-radius: 60px;
+      font-weight: 700;
+    }
+    .highlight-btn:hover {
+      background: #d35400;
+    }
+
+    /* ---------- MOBILE MENU – WITH DROPDOWN ---------- */
+    .mobile-menu-btn {
+      display: none;
+      background: rgba(44,62,79,0.06);
+      border: none;
+      font-size: 26px;
+      color: var(--primary);
+      cursor: pointer;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      transition: var(--transition);
+      align-items: center;
+      justify-content: center;
+    }
+    .mobile-menu-btn:hover {
+      background: rgba(230,126,34,0.1);
+    }
+
+    .mobile-overlay {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      background: var(--primary);
+      z-index: 2000;
+      transition: right 0.7s cubic-bezier(0.77,0,0.175,1);
+      padding: 120px 40px 40px;
+      overflow-y: auto;
+      box-shadow: -10px 0 50px rgba(0,0,0,0.2);
+    }
+    .mobile-overlay.active {
+      right: 0;
+    }
+    .mobile-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .mobile-close:hover {
+      background: var(--accent);
+      transform: rotate(90deg);
+      color: var(--primary);
+    }
+    .mobile-nav-links {
+      list-style: none;
+    }
+    .mobile-nav-links li {
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-nav-links a {
+      display: block;
+      padding: 18px 0;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 24px;
+      font-family: 'Lora', serif;
+      transition: 0.3s;
+    }
+    .mobile-nav-links a:hover {
+      color: var(--accent);
+      padding-left: 12px;
+    }
+    .mobile-dropdown-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      color: white;
+      background: transparent;
+      border: none;
+      font-weight: 700;
+      font-size: 24px;
+      font-family: 'Lora', serif;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-dropdown-btn i {
+      color: var(--accent);
+    }
+    .mobile-dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .mobile-dropdown-content.active {
+      max-height: 550px;
+    }
+    .mobile-dropdown-content a {
+      padding: 14px 24px;
+      font-size: 20px;
+      color: rgba(255,255,255,0.9);
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .mobile-overlay-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+      z-index: 1999;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+    .mobile-overlay-bg.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ---------- PROJECTS HERO – PARALLAX ---------- */
+    .projects-hero {
+      position: relative;
+      height: 60vh;
+      min-height: 450px;
+      margin-top: 90px;
+      background-image: url('https://i.pinimg.com/1200x/15/51/91/1551917cf6023f9bbf9fcb1e03c8ef34.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+    .projects-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, rgba(44,62,79,0.85), rgba(44,62,79,0.5));
+    }
+    .projects-hero-content {
+      position: relative;
+      z-index: 5;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .projects-hero h1 {
+      font-size: 72px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      animation: fadeInUp 1s 0.3s both;
+    }
+    .projects-hero p {
+      font-size: 22px;
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeInUp 1s 0.5s both;
+    }
+
+    /* ---------- ZIGZAG PROJECT LAYOUT – ALTERNATING ---------- */
+    .project-zigzag {
+      padding: 100px 0 50px;
+    }
+    .project-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+    .project-item.reverse {
+      direction: rtl;
+    }
+    .project-item.reverse .project-content {
+      direction: ltr;
+    }
+    .project-image {
+      position: relative;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .project-image:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: var(--shadow-xl);
+    }
+    .project-image img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      transition: transform 1.2s;
+      display: block;
+    }
+    .project-image:hover img {
+      transform: scale(1.08);
+    }
+    .project-category {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--accent);
+      color: white;
+      padding: 8px 24px;
+      border-radius: 60px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      z-index: 2;
+      box-shadow: 0 8px 20px rgba(230,126,34,0.3);
+    }
+    .project-content {
+      padding: 20px 0;
+    }
+    .project-content h2 {
+      font-size: 38px;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .project-location {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray);
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .project-location i {
+      color: var(--accent);
+    }
+    .project-description {
+      color: var(--gray);
+      font-size: 18px;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .meta-item i {
+      color: var(--accent);
+      font-size: 20px;
+    }
+    .meta-item span {
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .btn-project {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 38px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 60px;
+      transition: var(--transition);
+      gap: 10px;
+      border: 2px solid transparent;
+    }
+    .btn-project:hover {
+      background: #d35400;
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px -8px rgba(230,126,34,0.4);
+    }
+    .btn-project i {
+      transition: transform 0.3s;
+    }
+    .btn-project:hover i {
+      transform: translateX(6px);
+    }
+
+    /* ---------- PROJECT IMPACT STATS – COUNTING ---------- */
+    .project-stats {
+      padding: 80px 0;
+      background: var(--primary);
+      color: white;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+    .stat-block {
+      padding: 20px;
+    }
+    .stat-icon {
+      font-size: 48px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .stat-number {
+      font-size: 52px;
+      font-weight: 800;
+      font-family: 'Lora', serif;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ---------- CLIENT TESTIMONIALS – SLIDESHOW / CAROUSEL ---------- */
+    .testimonials {
+      padding: 100px 0;
+      background: var(--light);
+      position: relative;
+    }
+    .testimonial-carousel {
+      max-width: 900px;
+      margin: 60px auto 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial-wrapper {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .testimonial-slide {
+      flex: 0 0 100%;
+      padding: 0 20px;
+    }
+    .testimonial-card {
+      background: white;
+      padding: 50px 50px 40px;
+      border-radius: 30px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+      position: relative;
+      margin: 0 auto;
+      max-width: 800px;
+    }
+    .testimonial-card .quote-icon {
+      color: var(--accent);
+      font-size: 48px;
+      opacity: 0.2;
+      margin-bottom: 20px;
+    }
+    .testimonial-text {
+      font-size: 20px;
+      color: var(--dark);
+      margin-bottom: 30px;
+      font-style: italic;
+      line-height: 1.8;
+    }
+    .client-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .client-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .client-name h4 {
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .client-name p {
+      color: var(--gray);
+      font-size: 15px;
+    }
+    /* carousel controls */
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .carousel-arrow {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      font-size: 22px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-arrow:hover {
+      background: var(--accent);
+      color: white;
+      transform: scale(1.1);
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 12px;
+    }
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(230,126,34,0.3);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .carousel-dot.active {
+      background: var(--accent);
+      transform: scale(1.3);
+    }
+
+    /* ---------- PROJECT APPROACH – TIMELINE STYLE ---------- */
+    .project-approach {
+      padding: 100px 0;
+      background: white;
+    }
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-top: 60px;
+    }
+    .approach-step {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--light);
+      border-radius: 24px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .approach-step:hover {
+      transform: translateY(-8px);
+      background: white;
+      box-shadow: var(--shadow-md);
+    }
+    .step-number {
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      background: var(--accent);
+      color: white;
+      font-size: 30px;
+      font-weight: 800;
+      font-family: 'Lora', serif;
+      line-height: 70px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+    .approach-step:hover .step-number {
+      background: var(--primary);
+      transform: scale(0.9);
+    }
+    .approach-step h3 {
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .approach-step p {
+      color: var(--gray);
+    }
+
+    /* ---------- RECOGNITION & PARTNERS ---------- */
+    .recognition {
+      padding: 80px 0;
+      background: var(--light);
+    }
+    .recognition-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      margin-top: 40px;
+    }
+    .badge {
+      text-align: center;
+    }
+    .badge i {
+      font-size: 60px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .badge span {
+      display: block;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 18px;
+    }
+    .badge small {
+      color: var(--gray);
+    }
+
+    /* ---------- CTA SECTION – PULSE ANIMATION ---------- */
+    .projects-cta {
+      padding: 100px 0;
+      background: linear-gradient(145deg, var(--primary-dark), #15232e);
+      text-align: center;
+      color: white;
+    }
+    .projects-cta h2 {
+      font-size: 52px;
+      margin-bottom: 16px;
+    }
+    .projects-cta p {
+      font-size: 20px;
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+    .projects-cta .btn {
+      background: var(--accent);
+      color: white;
+      padding: 16px 56px;
+      font-size: 18px;
+      animation: pulseButton 2.5s infinite;
+    }
+    @keyframes pulseButton {
+      0% { box-shadow: 0 0 0 0 rgba(230,126,34,0.5); }
+      70% { box-shadow: 0 0 0 20px rgba(230,126,34,0); }
+      100% { box-shadow: 0 0 0 0 rgba(230,126,34,0); }
+    }
+
+    /* ---------- FOOTER – PROFESSIONAL, LOCATION DOT ---------- */
+    footer {
+      background: #1E2E3B;
+      color: #E0E7EF;
+      padding: 100px 0 30px;
+      font-size: 16px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 60px;
+      margin-bottom: 70px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 30px;
+      font-weight: 900;
+      color: white;
+      font-family: 'Lora', serif;
+      margin-bottom: 20px;
+    }
+    .footer-logo i {
+      color: var(--accent);
+    }
+    .footer-about p {
+      opacity: 0.7;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      color: white;
+      transition: var(--transition);
+      font-size: 20px;
+    }
+    .social-links a:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-6px) rotate(360deg);
+    }
+    .footer-links h4 {
+      color: white;
+      font-size: 20px;
+      margin-bottom: 28px;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 16px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-links a i {
+      font-size: 14px;
+      color: var(--accent);
+    }
+    .footer-links a:hover {
+      color: var(--accent);
+      transform: translateX(8px);
+    }
+    .footer-contact ul {
+      list-style: none;
+    }
+    .footer-contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,0.7);
+    }
+    .footer-contact i {
+      color: var(--accent);
+      font-size: 18px;
+      margin-top: 4px;
+    }
+    .footer-contact .fa-location-dot {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+    }
+
+    /* ---------- ANIMATIONS & RESPONSIVE ---------- */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 992px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .stats-grid,
+      .approach-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .projects-hero h1 { font-size: 52px; }
+      .project-item {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 70px;
+      }
+      .project-item.reverse {
+        direction: ltr;
+      }
+      .project-image img {
+        height: 350px;
+      }
+      .project-content h2 {
+        font-size: 32px;
+      }
+      .stats-grid,
+      .approach-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 42px; }
+      .recognition-grid { gap: 30px; }
+      .testimonial-card { padding: 30px 25px; }
+    }
+    @media (max-width: 576px) {
+      .container { padding: 0 20px; }
+      .projects-hero h1 { font-size: 42px; }
+      .projects-hero p { font-size: 18px; }
+      .project-meta { flex-direction: column; gap: 15px; }
+    }
+
+    [data-aos] { opacity: 0; transition-property: opacity, transform; }
+    [data-aos].aos-animate { opacity: 1; }
+  </style>
+</head>
+<body>
+  <!-- HEADER – MULTIPAGE, ACTIVE STATE ON PROJECTS -->
+  <header id="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-helmet-safety"></i>
+        <span>Construction</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+          <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-menu">
+            <a href="services.html"><i class="fas fa-home"></i> Residential</a>
+            <a href="services.html"><i class="fas fa-building"></i> Commercial</a>
+            <a href="services.html"><i class="fas fa-industry"></i> Industrial</a>
+            <a href="services.html"><i class="fas fa-tools"></i> Renovation</a>
+            <a href="services.html"><i class="fas fa-hard-hat"></i> Project Mgmt</a>
+            <a href="services.html"><i class="fas fa-drafting-compass"></i> Architecture</a>
+            <a href="services.html"><i class="fas fa-leaf"></i> Green Building</a>
+          </div>
+        </li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="quote.html" class="highlight-btn">Get Quote</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <div class="mobile-close" id="mobileCloseBtn"><i class="fas fa-times"></i></div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li>
+        <button class="mobile-dropdown-btn" id="mobileServicesBtn">
+          Services <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="mobile-dropdown-content" id="mobileServicesDropdown">
+          <a href="services.html"><i class="fas fa-home"></i> Residential</a>
+          <a href="services.html"><i class="fas fa-building"></i> Commercial</a>
+          <a href="services.html"><i class="fas fa-industry"></i> Industrial</a>
+          <a href="services.html"><i class="fas fa-tools"></i> Renovation</a>
+          <a href="services.html"><i class="fas fa-hard-hat"></i> Project Mgmt</a>
+          <a href="services.html"><i class="fas fa-drafting-compass"></i> Architecture</a>
+          <a href="services.html"><i class="fas fa-leaf"></i> Green Building</a>
+        </div>
+      </li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="quote.html" style="color: var(--accent);">Get Quote</a></li>
+    </ul>
+  </div>
+  <div class="mobile-overlay-bg" id="mobileOverlayBg"></div>
+
+  <!-- PROJECTS HERO -->
+  <section class="projects-hero">
+    <div class="projects-hero-content" data-aos="fade-up">
+      <h1>Our Signature Projects</h1>
+      <p>Delivering landmark developments across India – each built with integrity, precision, and pride.</p>
+    </div>
+  </section>
+
+  <!-- ZIGZAG PROJECTS SECTION – 4 PROJECTS (ALTERNATING) -->
+  <section class="project-zigzag">
+    <div class="container">
+      
+      <!-- PROJECT 1 – IMAGE LEFT, CONTENT RIGHT -->
+      <div class="project-item" data-aos="fade-up">
+        <div class="project-image" data-aos="zoom-in-right">
+          <span class="project-category">Residential</span>
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80" alt="Emerald Residency">
+        </div>
+        <div class="project-content" data-aos="fade-left">
+          <h2>Emerald Residency</h2>
+          <div class="project-location">
+            <i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu
+          </div>
+          <p class="project-description">
+            A luxury residential enclave featuring 42 apartments with sustainable design, energy-efficient systems, and panoramic city views.
+          </p>
+          <div class="project-meta">
+            <div class="meta-item">
+              <i class="fas fa-clock"></i>
+              <span>Duration: 10 months</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-calendar-check"></i>
+              <span>Completed: Mar 2025</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-ruler-combined"></i>
+              <span>2.4 Lakh sq.ft</span>
+            </div>
+          </div>
+          <a href="#" class="btn-project">View Case Study <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 – IMAGE RIGHT, CONTENT LEFT -->
+      <div class="project-item reverse" data-aos="fade-up">
+        <div class="project-image" data-aos="zoom-in-left">
+          <span class="project-category">Commercial</span>
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Metro Tech Park">
+        </div>
+        <div class="project-content" data-aos="fade-right">
+          <h2>Metro Tech Park</h2>
+          <div class="project-location">
+            <i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka
+          </div>
+          <p class="project-description">
+            State-of-the-art IT campus with smart building automation and LEED Platinum certification. Phase 1 completed, Phase 2 ongoing.
+          </p>
+          <div class="project-meta">
+            <div class="meta-item">
+              <i class="fas fa-clock"></i>
+              <span>Duration: 14 months</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-calendar-check"></i>
+              <span>Completed: Jan 2024</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-ruler-combined"></i>
+              <span>1.2M sq.ft</span>
+            </div>
+          </div>
+          <a href="#" class="btn-project">View Case Study <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 – IMAGE LEFT, CONTENT RIGHT -->
+      <div class="project-item" data-aos="fade-up">
+        <div class="project-image" data-aos="zoom-in-right">
+          <span class="project-category">Industrial</span>
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Electro Steel Plant">
+        </div>
+        <div class="project-content" data-aos="fade-left">
+          <h2>Electro Steel Plant</h2>
+          <div class="project-location">
+            <i class="fas fa-map-marker-alt"></i> Sriperumbudur, Tamil Nadu
+          </div>
+          <p class="project-description">
+            A 500,000 sq.ft advanced manufacturing facility with automated assembly lines, 25MW power backup, and zero-liquid discharge system.
+          </p>
+          <div class="project-meta">
+            <div class="meta-item">
+              <i class="fas fa-clock"></i>
+              <span>Duration: 12 months</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-calendar-check"></i>
+              <span>Completed: Sep 2024</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-ruler-combined"></i>
+              <span>5 Lakh sq.ft</span>
+            </div>
+          </div>
+          <a href="#" class="btn-project">View Case Study <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 – IMAGE RIGHT, CONTENT LEFT -->
+      <div class="project-item reverse" data-aos="fade-up">
+        <div class="project-image" data-aos="zoom-in-left">
+          <span class="project-category">Renovation</span>
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Victoria Heritage">
+        </div>
+        <div class="project-content" data-aos="fade-right">
+          <h2>Victoria Heritage</h2>
+          <div class="project-location">
+            <i class="fas fa-map-marker-alt"></i> Mysore, Karnataka
+          </div>
+          <p class="project-description">
+            Restoration and adaptive reuse of a 19th‑century heritage building into a boutique hotel. Preserved original facades, modern interiors, IGBC Green certified.
+          </p>
+          <div class="project-meta">
+            <div class="meta-item">
+              <i class="fas fa-clock"></i>
+              <span>Duration: 18 months</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-calendar-check"></i>
+              <span>Completed: May 2025</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-ruler-combined"></i>
+              <span>45,000 sq.ft</span>
+            </div>
+          </div>
+          <a href="#" class="btn-project">View Case Study <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECT IMPACT STATS – COUNTING -->
+  <section class="project-stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-block" data-aos="flip-left">
+          <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="stat-number" id="statProjects">0+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-block" data-aos="flip-left" data-aos-delay="100">
+          <div class="stat-icon"><i class="fas fa-ruler-combined"></i></div>
+          <div class="stat-number" id="statSqft">0+</div>
+          <div class="stat-label">Sq. Ft. Built</div>
+        </div>
+        <div class="stat-block" data-aos="flip-left" data-aos-delay="200">
+          <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+          <div class="stat-number" id="statAwards">0+</div>
+          <div class="stat-label">Industry Awards</div>
+        </div>
+        <div class="stat-block" data-aos="flip-left" data-aos-delay="300">
+          <div class="stat-icon"><i class="fas fa-hard-hat"></i></div>
+          <div class="stat-number" id="statWorkers">0+</div>
+          <div class="stat-label">Skilled Workers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT TESTIMONIALS – SLIDESHOW / CAROUSEL -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-tag" style="display: block; text-align: center;">Client Stories</div>
+      <h2 class="section-title" style="text-align: center;">What Our Clients Say</h2>
+      
+      <div class="testimonial-carousel">
+        <div class="testimonial-wrapper" id="testimonialWrapper">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+              <p class="testimonial-text">"Construction transformed our vision into reality. Their attention to detail and project management expertise ensured our luxury apartments were delivered ahead of schedule. Absolutely professional."</p>
+              <div class="client-info">
+                <img class="client-img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Ravi Shankar">
+                <div class="client-name">
+                  <h4>Ravi Shankar</h4>
+                  <p>Director, Emerald Group</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+              <p class="testimonial-text">"The renovation of our heritage property required delicate handling. Construction respected the history while seamlessly integrating modern amenities. A masterpiece of adaptive reuse."</p>
+              <div class="client-info">
+                <img class="client-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Anita Desai">
+                <div class="client-name">
+                  <h4>Anita Desai</h4>
+                  <p>Owner, Victoria Heritage</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+              <p class="testimonial-text">"Construction's industrial expertise is unmatched. They completed our factory ahead of schedule and under budget. The zero-liquid discharge system they installed is a benchmark for sustainable manufacturing."</p>
+              <div class="client-info">
+                <img class="client-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Suresh Reddy">
+                <div class="client-name">
+                  <h4>Suresh Reddy</h4>
+                  <p>CEO, Electro Steel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <div class="carousel-controls">
+          <button class="carousel-arrow" id="prevTestimonial"><i class="fas fa-chevron-left"></i></button>
+          <div class="carousel-dots" id="carouselDots">
+            <span class="carousel-dot active" data-index="0"></span>
+            <span class="carousel-dot" data-index="1"></span>
+            <span class="carousel-dot" data-index="2"></span>
+          </div>
+          <button class="carousel-arrow" id="nextTestimonial"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT APPROACH – 4 STEPS -->
+  <section class="project-approach">
+    <div class="container">
+      <div class="section-tag" style="display: block; text-align: center;">Our Approach</div>
+      <h2 class="section-title" style="text-align: center;">How We Deliver Excellence</h2>
+      <div class="approach-grid">
+        <div class="approach-step" data-aos="zoom-in">
+          <div class="step-number">1</div>
+          <h3>Discover & Plan</h3>
+          <p>In-depth consultation, feasibility studies, and detailed project roadmap.</p>
+        </div>
+        <div class="approach-step" data-aos="zoom-in" data-aos-delay="50">
+          <div class="step-number">2</div>
+          <h3>Design & Engineer</h3>
+          <p>Innovative architectural designs, structural engineering, and material selection.</p>
+        </div>
+        <div class="approach-step" data-aos="zoom-in" data-aos-delay="100">
+          <div class="step-number">3</div>
+          <h3>Execute & Monitor</h3>
+          <p>On-site execution with strict quality control, safety, and timeline adherence.</p>
+        </div>
+        <div class="approach-step" data-aos="zoom-in" data-aos-delay="150">
+          <div class="step-number">4</div>
+          <h3>Handover & Support</h3>
+          <p>Final walkthrough, documentation, and post‑completion maintenance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOGNITION & PARTNERS -->
+  <!-- <section class="recognition">
+    <div class="container">
+      <div class="section-tag" style="display: block; text-align: center;">Recognition</div>
+      <h2 class="section-title" style="text-align: center;">Trusted by Industry Leaders</h2>
+      <div class="recognition-grid">
+        <div class="badge" data-aos="fade-up">
+          <i class="fas fa-certificate"></i>
+          <span>ISO 9001:2025</span>
+          <small>Quality Management</small>
+        </div>
+        <div class="badge" data-aos="fade-up" data-aos-delay="50">
+          <i class="fas fa-leaf"></i>
+          <span>IGBC Certified</span>
+          <small>Green Building</small>
+        </div>
+        <div class="badge" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-shield-alt"></i>
+          <span>Safety Award 2025</span>
+          <small>Zero Accident</small>
+        </div>
+        <div class="badge" data-aos="fade-up" data-aos-delay="150">
+          <i class="fas fa-handshake"></i>
+          <span>50+ Partners</span>
+          <small>Vendors & Suppliers</small>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- CTA -->
+  <section class="projects-cta">
+    <div class="container">
+      <div data-aos="zoom-in">
+        <h2>Have a project in mind?</h2>
+        <p>Let’s discuss your vision – from concept to completion, we deliver excellence.</p>
+        <a href="contact.html" class="btn">Start Your Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+   <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo"><i class="fas fa-helmet-safety"></i><span>Construction</span></div>
+          <p>With over 10 years of proven excellence, Construction delivers premium construction solutions across India. Trust, quality, and innovation define us.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+            <li><a href="projects.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Residential</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Commercial</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Renovation</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Green Building</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Project Mgmt</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+            <h4 style="font-size: 20px;font-weight:700;">Get in Touch</h4>
+          <br>
+          <ul>
+            <li><i class="fas fa-location-dot"></i> Kumbakonam-612001</li>
+            <li><i class="fas fa-phone-alt"></i> +91 xxxxx xxxxx</li>
+            <li><i class="fas fa-envelope"></i> hello@Construction.in</li>
+            <li><i class="fas fa-clock"></i> Mon–Sat: 9:00 AM – 7:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Construction Construction. All rights reserved. Built with strength & integrity.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS & JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true, offset: 80, easing: 'ease-out-cubic' });
+
+    // Header scroll effect
+    window.addEventListener('scroll', ()=> document.getElementById('header').classList.toggle('scrolled', window.scrollY>60));
+
+    // Mobile menu
+    const menuBtn=document.getElementById('mobileMenuBtn'), mobileOverlay=document.getElementById('mobileOverlay'), overlayBg=document.getElementById('mobileOverlayBg'), closeBtn=document.getElementById('mobileCloseBtn');
+    function openMobileMenu(){ mobileOverlay.classList.add('active'); overlayBg.classList.add('active'); document.body.style.overflow='hidden'; }
+    function closeMobileMenu(){ mobileOverlay.classList.remove('active'); overlayBg.classList.remove('active'); document.body.style.overflow='auto'; }
+    menuBtn.addEventListener('click', openMobileMenu);
+    closeBtn.addEventListener('click', closeMobileMenu);
+    overlayBg.addEventListener('click', closeMobileMenu);
+    document.querySelectorAll('.mobile-nav-links a').forEach(l=>l.addEventListener('click', closeMobileMenu));
+
+    // Mobile dropdown
+    const mobileServicesBtn=document.getElementById('mobileServicesBtn'), mobileDropdown=document.getElementById('mobileServicesDropdown');
+    if(mobileServicesBtn) mobileServicesBtn.addEventListener('click', function(e){ e.preventDefault(); mobileDropdown.classList.toggle('active'); this.querySelector('i').classList.toggle('fa-chevron-down'); this.querySelector('i').classList.toggle('fa-chevron-up'); });
+
+    // COUNTING STATS (Project Impact)
+    function animateNumber(el, target, suffix='+'){
+      let current=0, inc=target/60;
+      let t=setInterval(()=>{ current+=inc; if(current>=target){ el.textContent=target+suffix; clearInterval(t); } else{ el.textContent=Math.floor(current)+suffix; } },30);
+    }
+
+    const statsSection = document.querySelector('.project-stats');
+    if(statsSection){
+      const observer=new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){
+        let p=document.getElementById('statProjects'), s=document.getElementById('statSqft'), a=document.getElementById('statAwards'), w=document.getElementById('statWorkers');
+        if(p && p.textContent==='0+') animateNumber(p,150,'+');
+        if(s && s.textContent==='0+') animateNumber(s,25,'L+'); // 25 Lakh+ sq.ft
+        if(a && a.textContent==='0+') animateNumber(a,20,'+');
+        if(w && w.textContent==='0+') animateNumber(w,200,'+');
+        observer.unobserve(e.target);
+      }}) }, {threshold:0.5});
+      observer.observe(statsSection);
+    }
+
+    // ---------- TESTIMONIAL CAROUSEL ----------
+    const wrapper = document.getElementById('testimonialWrapper');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const prevBtn = document.getElementById('prevTestimonial');
+    const nextBtn = document.getElementById('nextTestimonial');
+    let currentIndex = 0;
+    const totalSlides = document.querySelectorAll('.testimonial-slide').length;
+
+    function updateCarousel(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      wrapper.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      currentIndex = index;
+    }
+
+    prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+    nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => updateCarousel(i));
+    });
+
+    // Auto-play every 5 seconds
+    let autoPlay = setInterval(() => updateCarousel(currentIndex + 1), 5000);
+    const carousel = document.querySelector('.testimonial-carousel');
+    carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+    carousel.addEventListener('mouseleave', () => {
+      autoPlay = setInterval(() => updateCarousel(currentIndex + 1), 5000);
+    });
+  </script>
+</body>
+</html>

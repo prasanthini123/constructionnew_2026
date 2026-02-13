@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>Construction | Request a Quote – Premium Construction</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Work Sans + Lora (strong, earthy) -->
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=Lora:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- AOS Scroll Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    /* ---------- GLOBAL RESET – CONSTRUCTION EARTH & STEEL ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #2C3E4F;
+      --primary-dark: #1E2E3B;
+      --accent: #E67E22;
+      --accent-light: #F39C12;
+      --light: #F8F9F9;
+      --dark: #1C2833;
+      --gray: #5D6D7E;
+      --white: #ffffff;
+      --shadow-sm: 0 15px 35px -15px rgba(0,0,0,0.08);
+      --shadow-md: 0 25px 50px -20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 40px 70px -25px rgba(0,0,0,0.18);
+      --shadow-xl: 0 50px 90px -30px rgba(0,0,0,0.25);
+      --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --border-radius: 24px;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      color: var(--dark);
+      background-color: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* ---------- TYPOGRAPHY & UTILITY ---------- */
+    .section-tag {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      position: relative;
+      padding: 0 12px;
+      background: rgba(230,126,34,0.08);
+      border-radius: 40px;
+      line-height: 32px;
+    }
+
+    .section-title {
+      font-size: 52px;
+      color: var(--primary);
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    @media (max-width: 768px) {
+      .section-title { font-size: 42px; }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 44px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 2px solid transparent;
+      cursor: pointer;
+      letter-spacing: 1px;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+      z-index: -1;
+    }
+    .btn:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 10px 25px -8px rgba(230,126,34,0.4);
+    }
+    .btn-primary:hover {
+      background: #d35400;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px -8px rgba(230,126,34,0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .btn-outline-dark {
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+    }
+    .btn-outline-dark:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    /* ---------- HEADER – STICKY, GLASS, DROPDOWN (IDENTICAL) ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(230,126,34,0.15);
+      transition: var(--transition);
+    }
+    header.scrolled {
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 90px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--primary);
+      text-decoration: none;
+      font-family: 'Lora', serif;
+    }
+    .logo i {
+      color: var(--accent);
+      font-size: 36px;
+      transform: rotate(-5deg);
+      transition: transform 0.3s;
+    }
+    .logo:hover i {
+      transform: rotate(0deg) scale(1.1);
+    }
+
+    /* DESKTOP NAV */
+    .nav-links {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 40px;
+    }
+    .nav-links li {
+      position: relative;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 16px;
+      transition: color 0.3s;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a i {
+      font-size: 12px;
+      transition: transform 0.3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+    .nav-links a:hover i {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: -20px;
+      width: 260px;
+      background: white;
+      border-radius: 24px;
+      padding: 16px 0;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+      border: 1px solid rgba(230,126,34,0.2);
+    }
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(8px);
+    }
+    .dropdown-menu a {
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--dark);
+      border-left: 4px solid transparent;
+    }
+    .dropdown-menu a i {
+      color: var(--accent);
+    }
+    .dropdown-menu a:hover {
+      background: rgba(230,126,34,0.04);
+      color: var(--accent);
+      border-left-color: var(--accent);
+      padding-left: 28px;
+    }
+    .highlight-btn {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: 12px 30px !important;
+      border-radius: 60px;
+      font-weight: 700;
+    }
+    .highlight-btn:hover {
+      background: #d35400;
+    }
+
+    /* ---------- MOBILE MENU – WITH DROPDOWN (IDENTICAL) ---------- */
+    .mobile-menu-btn {
+      display: none;
+      background: rgba(44,62,79,0.06);
+      border: none;
+      font-size: 26px;
+      color: var(--primary);
+      cursor: pointer;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      transition: var(--transition);
+      align-items: center;
+      justify-content: center;
+    }
+    .mobile-menu-btn:hover {
+      background: rgba(230,126,34,0.1);
+    }
+
+    .mobile-overlay {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      background: var(--primary);
+      z-index: 2000;
+      transition: right 0.7s cubic-bezier(0.77,0,0.175,1);
+      padding: 120px 40px 40px;
+      overflow-y: auto;
+      box-shadow: -10px 0 50px rgba(0,0,0,0.2);
+    }
+    .mobile-overlay.active {
+      right: 0;
+    }
+    .mobile-close {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .mobile-close:hover {
+      background: var(--accent);
+      transform: rotate(90deg);
+      color: var(--primary);
+    }
+    .mobile-nav-links {
+      list-style: none;
+    }
+    .mobile-nav-links li {
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-nav-links a {
+      display: block;
+      padding: 18px 0;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 24px;
+      font-family: 'Lora', serif;
+      transition: 0.3s;
+    }
+    .mobile-nav-links a:hover {
+      color: var(--accent);
+      padding-left: 12px;
+    }
+    .mobile-dropdown-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      color: white;
+      background: transparent;
+      border: none;
+      font-weight: 700;
+      font-size: 24px;
+      font-family: 'Lora', serif;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-dropdown-btn i {
+      color: var(--accent);
+    }
+    .mobile-dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .mobile-dropdown-content.active {
+      max-height: 550px;
+    }
+    .mobile-dropdown-content a {
+      padding: 14px 24px;
+      font-size: 20px;
+      color: rgba(255,255,255,0.9);
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .mobile-overlay-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+      z-index: 1999;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+    .mobile-overlay-bg.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ---------- QUOTE HERO – CINEMATIC ---------- */
+    .quote-hero {
+      position: relative;
+      height: 50vh;
+      min-height: 400px;
+      margin-top: 90px;
+      background-image: url(images/bg3.png);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+    .quote-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, rgba(44,62,79,0.85), rgba(44,62,79,0.5));
+    }
+    .quote-hero-content {
+      position: relative;
+      z-index: 5;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .quote-hero h1 {
+      font-size: 64px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      text-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      animation: fadeInUp 1s 0.3s both;
+    }
+    .quote-hero p {
+      font-size: 22px;
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeInUp 1s 0.5s both;
+    }
+
+    /* ---------- QUOTE FORM SECTION ---------- */
+    .quote-section {
+      padding: 100px 0;
+      background: white;
+    }
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+    .quote-info {
+      background: var(--light);
+      padding: 50px;
+      border-radius: 30px;
+      box-shadow: var(--shadow-md);
+    }
+    .quote-info h2 {
+      font-size: 36px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .quote-info p {
+      color: var(--gray);
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+    .info-features {
+      list-style: none;
+      margin-top: 30px;
+    }
+    .info-features li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      font-size: 17px;
+    }
+    .info-features i {
+      color: var(--accent);
+      font-size: 20px;
+    }
+    .quote-form-container {
+      background: white;
+      padding: 50px;
+      border-radius: 30px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(230,126,34,0.1);
+    }
+    .quote-form-container h3 {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 30px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 16px 20px;
+      border: 1px solid #e0e7ef;
+      border-radius: 16px;
+      font-family: 'Work Sans', sans-serif;
+      font-size: 16px;
+      transition: var(--transition);
+      background: var(--light);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(230,126,34,0.1);
+      background: white;
+    }
+    .form-group textarea {
+      height: 150px;
+      resize: vertical;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-btn {
+      width: 100%;
+      padding: 18px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 18px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .form-btn:hover {
+      background: #d35400;
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px -8px rgba(230,126,34,0.4);
+    }
+    .form-btn i {
+      transition: transform 0.3s;
+    }
+    .form-btn:hover i {
+      transform: translateX(6px);
+    }
+
+    /* ---------- WHY REQUEST A QUOTE – BENEFITS SECTION ---------- */
+    .quote-benefits {
+      padding: 80px 0;
+      background: var(--light);
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .benefit-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 30px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+    .benefit-card i {
+      font-size: 48px;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .benefit-card h4 {
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .benefit-card p {
+      color: var(--gray);
+    }
+
+    /* ---------- CTA SECTION – PULSE BUTTON ---------- */
+    .quote-cta {
+      padding: 80px 0;
+      background: linear-gradient(145deg, var(--primary-dark), #15232e);
+      text-align: center;
+      color: white;
+    }
+    .quote-cta h2 {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .quote-cta p {
+      font-size: 20px;
+      margin-bottom: 32px;
+      opacity: 0.9;
+    }
+    .quote-cta .btn {
+      background: var(--accent);
+      color: white;
+      padding: 16px 56px;
+      font-size: 18px;
+      animation: pulseButton 2.5s infinite;
+    }
+    @keyframes pulseButton {
+      0% { box-shadow: 0 0 0 0 rgba(230,126,34,0.5); }
+      70% { box-shadow: 0 0 0 20px rgba(230,126,34,0); }
+      100% { box-shadow: 0 0 0 0 rgba(230,126,34,0); }
+    }
+
+    /* ---------- FOOTER – PROFESSIONAL (MATCHES OTHER PAGES) ---------- */
+    footer {
+      background: #1E2E3B;
+      color: #E0E7EF;
+      padding: 100px 0 30px;
+      font-size: 16px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 60px;
+      margin-bottom: 70px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 30px;
+      font-weight: 900;
+      color: white;
+      font-family: 'Lora', serif;
+      margin-bottom: 20px;
+    }
+    .footer-logo i {
+      color: var(--accent);
+    }
+    .footer-about p {
+      opacity: 0.7;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      color: white;
+      transition: var(--transition);
+      font-size: 20px;
+    }
+    .social-links a:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-6px) rotate(360deg);
+    }
+    .footer-links h4 {
+      color: white;
+      font-size: 20px;
+      margin-bottom: 28px;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 16px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-links a i {
+      font-size: 14px;
+      color: var(--accent);
+    }
+    .footer-links a:hover {
+      color: var(--accent);
+      transform: translateX(8px);
+    }
+    .footer-contact ul {
+      list-style: none;
+    }
+    .footer-contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,0.7);
+    }
+    .footer-contact i {
+      color: var(--accent);
+      font-size: 18px;
+      margin-top: 4px;
+    }
+    .footer-contact .fa-location-dot {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.5);
+      font-size: 15px;
+    }
+
+    /* ---------- ANIMATIONS & RESPONSIVE ---------- */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 992px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .quote-grid,
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .quote-hero h1 { font-size: 48px; }
+      .quote-grid,
+      .benefits-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 42px; }
+      .quote-info,
+      .quote-form-container { padding: 30px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 576px) {
+      .container { padding: 0 20px; }
+      .quote-hero h1 { font-size: 42px; }
+      .quote-hero p { font-size: 18px; }
+    }
+
+    [data-aos] { opacity: 0; transition-property: opacity, transform; }
+    [data-aos].aos-animate { opacity: 1; }
+  </style>
+</head>
+<body>
+  <!-- HEADER – MULTIPAGE, ACTIVE STATE ON QUOTE (HIGHLIGHT BUTTON) -->
+  <header id="header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-helmet-safety"></i>
+        <span>Construction</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+          <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-menu">
+            <a href="services.html"><i class="fas fa-home"></i> Residential</a>
+            <a href="services.html"><i class="fas fa-building"></i> Commercial</a>
+            <a href="services.html"><i class="fas fa-industry"></i> Industrial</a>
+            <a href="services.html"><i class="fas fa-tools"></i> Renovation</a>
+            <a href="services.html"><i class="fas fa-hard-hat"></i> Project Mgmt</a>
+            <a href="services.html"><i class="fas fa-drafting-compass"></i> Architecture</a>
+            <a href="services.html"><i class="fas fa-leaf"></i> Green Building</a>
+          </div>
+        </li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="quote.html" class="highlight-btn">Get Quote</a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE OVERLAY -->
+  <div class="mobile-overlay" id="mobileOverlay">
+    <div class="mobile-close" id="mobileCloseBtn"><i class="fas fa-times"></i></div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li>
+        <button class="mobile-dropdown-btn" id="mobileServicesBtn">
+          Services <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="mobile-dropdown-content" id="mobileServicesDropdown">
+          <a href="services.html"><i class="fas fa-home"></i> Residential</a>
+          <a href="services.html"><i class="fas fa-building"></i> Commercial</a>
+          <a href="services.html"><i class="fas fa-industry"></i> Industrial</a>
+          <a href="services.html"><i class="fas fa-tools"></i> Renovation</a>
+          <a href="services.html"><i class="fas fa-hard-hat"></i> Project Mgmt</a>
+          <a href="services.html"><i class="fas fa-drafting-compass"></i> Architecture</a>
+          <a href="services.html"><i class="fas fa-leaf"></i> Green Building</a>
+        </div>
+      </li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="quote.html" style="color: var(--accent);">Get Quote</a></li>
+    </ul>
+  </div>
+  <div class="mobile-overlay-bg" id="mobileOverlayBg"></div>
+
+  <!-- QUOTE HERO -->
+  <section class="quote-hero">
+    <div class="quote-hero-content" data-aos="fade-up">
+      <h1>Request a Quote</h1>
+      <p>Tell us about your project – we’ll get back to you within 24 hours with a detailed estimate.</p>
+    </div>
+  </section>
+
+  <!-- QUOTE FORM & INFO -->
+  <section class="quote-section">
+    <div class="container">
+      <div class="quote-grid">
+        <!-- Left side: why request info -->
+        <div class="quote-info" data-aos="fade-right">
+          <h2>Let’s build something great together</h2>
+          <p>Every project starts with a conversation. Share your vision, and our team will provide a clear, transparent quote – no hidden costs, no surprises.</p>
+          <ul class="info-features">
+            <li><i class="fas fa-check-circle"></i> Free, no‑obligation consultation</li>
+            <li><i class="fas fa-check-circle"></i> Detailed breakdown of costs</li>
+            <li><i class="fas fa-check-circle"></i> 24‑hour response guarantee</li>
+            <li><i class="fas fa-check-circle"></i> On‑site visit available</li>
+          </ul>
+          <div style="margin-top: 40px;">
+            <span style="font-weight: 700; color: var(--primary);">Or call us directly:</span><br>
+            <span style="font-size: 24px; font-weight: 800; color: var(--accent);">+91 xxxxx xxxxx</span>
+          </div>
+        </div>
+        <!-- Right side: quote form -->
+        <div class="quote-form-container" data-aos="fade-left">
+          <h3>Project Details</h3>
+          <form action="#" method="post">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Full Name *" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Email Address *" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" name="phone" placeholder="Phone Number *" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <select name="service" required>
+                  <option value="" disabled selected>Select Service</option>
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="industrial">Industrial</option>
+                  <option value="renovation">Renovation</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input type="text" name="location" placeholder="Project Location">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <input type="number" name="sqft" placeholder="Approx. Sq. Ft.">
+              </div>
+              <div class="form-group">
+                <select name="timeline">
+                  <option value="" disabled selected>Expected Timeline</option>
+                  <option value="3-6">3–6 months</option>
+                  <option value="6-12">6–12 months</option>
+                  <option value="12-18">12–18 months</option>
+                  <option value="18+">18+ months</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Tell us about your project, requirements, and budget *" required></textarea>
+            </div>
+            <button type="submit" class="form-btn">Submit Request <i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS SECTION -->
+  <section class="quote-benefits">
+    <div class="container">
+      <div class="section-tag" style="display: block; text-align: center;">Why Choose Us</div>
+      <h2 class="section-title" style="text-align: center;">Transparent, Fast & Reliable</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card" data-aos="zoom-in">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <h4>No Hidden Costs</h4>
+          <p>Our quotes are detailed and transparent – you’ll know exactly where your budget goes.</p>
+        </div>
+        <div class="benefit-card" data-aos="zoom-in" data-aos-delay="50">
+          <i class="fas fa-clock"></i>
+          <h4>24‑Hour Response</h4>
+          <p>We reply within one business day, often sooner. Your time is valuable.</p>
+        </div>
+        <div class="benefit-card" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fas fa-user-tie"></i>
+          <h4>Expert Consultation</h4>
+          <p>Direct access to senior engineers and architects – no junior intermediaries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="quote-cta">
+    <div class="container">
+      <div data-aos="zoom-in">
+        <h2>Prefer to talk?</h2>
+        <p>Call us today for an immediate discussion.</p>
+        <a href="contact.html" class="btn">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER – SAME AS OTHER PAGES -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo"><i class="fas fa-helmet-safety"></i><span>Construction</span></div>
+          <p>With over 10 years of proven excellence, Construction delivers premium construction solutions across India. Trust, quality, and innovation define us.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+            <li><a href="projects.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Residential</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Commercial</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Renovation</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Green Building</a></li>
+            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Project Mgmt</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4 style="font-size: 20px; font-weight:700;">Get in Touch</h4>
+          <br>
+          <ul>
+            <li><i class="fas fa-location-dot"></i> Kumbakonam-612001</li>
+            <li><i class="fas fa-phone-alt"></i> +91 xxxxx xxxxx</li>
+            <li><i class="fas fa-envelope"></i> hello@Construction.in</li>
+            <li><i class="fas fa-clock"></i> Mon–Sat: 9:00 AM – 7:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Construction. All rights reserved. Built with strength & integrity.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS & JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true, offset: 80, easing: 'ease-out-cubic' });
+
+    // Header scroll effect
+    window.addEventListener('scroll', ()=> document.getElementById('header').classList.toggle('scrolled', window.scrollY>60));
+
+    // Mobile menu
+    const menuBtn=document.getElementById('mobileMenuBtn'), mobileOverlay=document.getElementById('mobileOverlay'), overlayBg=document.getElementById('mobileOverlayBg'), closeBtn=document.getElementById('mobileCloseBtn');
+    function openMobileMenu(){ mobileOverlay.classList.add('active'); overlayBg.classList.add('active'); document.body.style.overflow='hidden'; }
+    function closeMobileMenu(){ mobileOverlay.classList.remove('active'); overlayBg.classList.remove('active'); document.body.style.overflow='auto'; }
+    menuBtn.addEventListener('click', openMobileMenu);
+    closeBtn.addEventListener('click', closeMobileMenu);
+    overlayBg.addEventListener('click', closeMobileMenu);
+    document.querySelectorAll('.mobile-nav-links a').forEach(l=>l.addEventListener('click', closeMobileMenu));
+
+    // Mobile dropdown
+    const mobileServicesBtn=document.getElementById('mobileServicesBtn'), mobileDropdown=document.getElementById('mobileServicesDropdown');
+    if(mobileServicesBtn) mobileServicesBtn.addEventListener('click', function(e){ e.preventDefault(); mobileDropdown.classList.toggle('active'); this.querySelector('i').classList.toggle('fa-chevron-down'); this.querySelector('i').classList.toggle('fa-chevron-up'); });
+  </script>
+</body>
+</html>
