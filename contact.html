@@ -6,9 +6,9 @@
   <title>Construction | Contact – Premium Construction</title>
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts: Work Sans + Lora (strong, earthy) -->
+  <!-- Google Fonts: Work Sans + Lora -->
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=Lora:wght@600;700;800&display=swap" rel="stylesheet">
-  <!-- AOS Scroll Animation -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     /* ---------- GLOBAL RESET – CONSTRUCTION EARTH & STEEL ---------- */
@@ -149,7 +149,7 @@
       color: var(--white);
     }
 
-    /* ---------- HEADER – STICKY, GLASS, DROPDOWN (IDENTICAL TO OTHER PAGES) ---------- */
+    /* ---------- HEADER – STICKY, GLASS, DROPDOWN ---------- */
     header {
       position: fixed;
       top: 0;
@@ -194,7 +194,7 @@
       transform: rotate(0deg) scale(1.1);
     }
 
-    /* DESKTOP NAV */
+    /* ---------- DESKTOP NAV ---------- */
     .nav-links {
       display: flex;
       list-style: none;
@@ -275,25 +275,32 @@
       background: #d35400;
     }
 
-    /* ---------- MOBILE MENU – WITH DROPDOWN (IDENTICAL) ---------- */
+    /* ---------- MOBILE MENU BUTTON – FIXED (VISIBLE & CLICKABLE) ---------- */
     .mobile-menu-btn {
-      display: none;
-      background: rgba(44,62,79,0.06);
-      border: none;
-      font-size: 26px;
-      color: var(--primary);
-      cursor: pointer;
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      transition: var(--transition);
+      display: none; /* hidden by default, shown on mobile via media query */
       align-items: center;
       justify-content: center;
+      width: 52px;
+      height: 52px;
+      background: var(--primary);
+     
+      border-radius: 14px;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .mobile-menu-btn i {
+      color: white;
     }
     .mobile-menu-btn:hover {
-      background: rgba(230,126,34,0.1);
+      background: var(--accent);
+      border-color: var(--primary);
+      transform: scale(0.95);
     }
 
+    /* ---------- MOBILE OVERLAY – SLIDE FROM RIGHT ---------- */
     .mobile-overlay {
       position: fixed;
       top: 0;
@@ -301,12 +308,14 @@
       width: 100%;
       max-width: 400px;
       height: 100vh;
-      background: var(--primary);
+      background: var(--primary-dark);
+      background: linear-gradient(145deg, #1E2E3B, #15232E);
       z-index: 2000;
-      transition: right 0.7s cubic-bezier(0.77,0,0.175,1);
+      transition: right 0.6s cubic-bezier(0.77,0,0.175,1);
       padding: 120px 40px 40px;
       overflow-y: auto;
-      box-shadow: -10px 0 50px rgba(0,0,0,0.2);
+      box-shadow: -10px 0 50px rgba(0,0,0,0.3);
+      
     }
     .mobile-overlay.active {
       right: 0;
@@ -326,6 +335,7 @@
       font-size: 24px;
       cursor: pointer;
       transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.2);
     }
     .mobile-close:hover {
       background: var(--accent);
@@ -370,11 +380,12 @@
     }
     .mobile-dropdown-btn i {
       color: var(--accent);
+      transition: transform 0.4s;
     }
     .mobile-dropdown-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.5s ease;
+      transition: max-height 0.6s ease;
       background: rgba(255,255,255,0.05);
       border-radius: 20px;
       margin-bottom: 8px;
@@ -397,8 +408,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(4px);
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
       z-index: 1999;
       opacity: 0;
       visibility: hidden;
@@ -493,7 +504,7 @@
       line-height: 1.6;
     }
 
-    /* ---------- CONTACT FORM & MAP SECTION ---------- */
+    /* ---------- CONTACT FORM & MAP ---------- */
     .contact-form-section {
       padding: 60px 0 100px;
       background: white;
@@ -647,7 +658,7 @@
       animation: pulseButton 2.5s infinite;
     }
 
-    /* ---------- FOOTER – PROFESSIONAL, LOCATION DOT (IDENTICAL) ---------- */
+    /* ---------- FOOTER – PROFESSIONAL ---------- */
     footer {
       background: #1E2E3B;
       color: #E0E7EF;
@@ -755,7 +766,7 @@
       font-size: 15px;
     }
 
-    /* ---------- ANIMATIONS & RESPONSIVE ---------- */
+    /* ---------- ANIMATIONS ---------- */
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -766,9 +777,10 @@
       100% { box-shadow: 0 0 0 0 rgba(230,126,34,0); }
     }
 
+    /* ---------- RESPONSIVE – MOBILE MENU FIX ---------- */
     @media (max-width: 992px) {
       .nav-links { display: none; }
-      .mobile-menu-btn { display: flex; }
+      .mobile-menu-btn { display: flex; }  /* Ensures hamburger appears */
       .info-grid,
       .contact-grid,
       .faq-grid { grid-template-columns: repeat(2, 1fr); }
@@ -788,6 +800,7 @@
       .container { padding: 0 20px; }
       .contact-hero h1 { font-size: 42px; }
       .contact-hero p { font-size: 18px; }
+      .mobile-menu-btn { width: 48px; height: 48px; font-size: 24px; } /* Slightly smaller on very small devices */
     }
 
     [data-aos] { opacity: 0; transition-property: opacity, transform; }
@@ -821,6 +834,7 @@
         <li><a href="contact.html" class="active">Contact</a></li>
         <li><a href="quote.html" class="highlight-btn">Get Quote</a></li>
       </ul>
+      <!-- HAMBURGER BUTTON – now visible and styled -->
       <button class="mobile-menu-btn" id="mobileMenuBtn">
         <i class="fas fa-bars"></i>
       </button>
@@ -968,8 +982,8 @@
     </div>
   </section>
 
-  <!-- FOOTER – IDENTICAL TO OTHER PAGES -->
-<footer>
+  <!-- FOOTER – IDENTICAL TO OTHER PAGES (duplicate text fixed) -->
+  <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
@@ -1004,7 +1018,7 @@
           </ul>
         </div>
         <div class="footer-contact">
-            <h4 style="font-size: 20px;font-weight:700;">Get in Touch</h4>
+          <h4 style="font-size: 20px;font-weight:700;">Get in Touch</h4>
           <br>
           <ul>
             <li><i class="fas fa-location-dot"></i> Kumbakonam-612001</li>
@@ -1015,7 +1029,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Construction Construction. All rights reserved. Built with strength & integrity.</p>
+        <p>&copy; 2026 Construction. All rights reserved. Built with strength & integrity.</p>
       </div>
     </div>
   </footer>
@@ -1028,18 +1042,44 @@
     // Header scroll effect
     window.addEventListener('scroll', ()=> document.getElementById('header').classList.toggle('scrolled', window.scrollY>60));
 
-    // Mobile menu (identical to other pages)
-    const menuBtn=document.getElementById('mobileMenuBtn'), mobileOverlay=document.getElementById('mobileOverlay'), overlayBg=document.getElementById('mobileOverlayBg'), closeBtn=document.getElementById('mobileCloseBtn');
-    function openMobileMenu(){ mobileOverlay.classList.add('active'); overlayBg.classList.add('active'); document.body.style.overflow='hidden'; }
-    function closeMobileMenu(){ mobileOverlay.classList.remove('active'); overlayBg.classList.remove('active'); document.body.style.overflow='auto'; }
+    // Mobile menu – fully functional
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const overlayBg = document.getElementById('mobileOverlayBg');
+    const closeBtn = document.getElementById('mobileCloseBtn');
+
+    function openMobileMenu() {
+      mobileOverlay.classList.add('active');
+      overlayBg.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      mobileOverlay.classList.remove('active');
+      overlayBg.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
     menuBtn.addEventListener('click', openMobileMenu);
     closeBtn.addEventListener('click', closeMobileMenu);
     overlayBg.addEventListener('click', closeMobileMenu);
-    document.querySelectorAll('.mobile-nav-links a').forEach(l=>l.addEventListener('click', closeMobileMenu));
+
+    // Close overlay when any nav link is clicked
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
 
     // Mobile dropdown
-    const mobileServicesBtn=document.getElementById('mobileServicesBtn'), mobileDropdown=document.getElementById('mobileServicesDropdown');
-    if(mobileServicesBtn) mobileServicesBtn.addEventListener('click', function(e){ e.preventDefault(); mobileDropdown.classList.toggle('active'); this.querySelector('i').classList.toggle('fa-chevron-down'); this.querySelector('i').classList.toggle('fa-chevron-up'); });
+    const mobileServicesBtn = document.getElementById('mobileServicesBtn');
+    const mobileDropdown = document.getElementById('mobileServicesDropdown');
+    if (mobileServicesBtn) {
+      mobileServicesBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        mobileDropdown.classList.toggle('active');
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-chevron-down');
+        icon.classList.toggle('fa-chevron-up');
+      });
+    }
   </script>
 </body>
 </html>
